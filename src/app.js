@@ -2,22 +2,42 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
+const { CLIENT_ORIGIN, DATABASE_URL } = require('./config')
 const helmet = require('helmet')
+// const { Sequelize } = require('sequelize');
+const knex = require('knex');
 const { NODE_ENV } = require('./config')
+const workoutRouter = require('./workout-router');
+
 
 const app = express()
+
+// const sequelize = new Sequelize(DATABASE_URL)
 
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
   : 'common';
 
+  db = knex({
+      client: 'pg',
+      connection: DATABASE_URL,
+  });
+  app.set('db', db);
+
 app.use(morgan(morganOption))
 app.use(helmet())
-app.use(cors())
 
-app.get('/api/*', (req, res) => {
+app.use(cors({
+    origin: CLIENT_ORIGIN
+}));
+
+app.use('/api/workouts', workoutRouter);
+
+app.get('/', (req, res) => {
     res.json({ok : true});
 })
+
+
 
 app.use(function errorHandler(error, req, res, next) {
     let response
@@ -28,5 +48,7 @@ app.use(function errorHandler(error, req, res, next) {
     }
     res.status(500).json(response)
 })
+
+
 
 module.exports = app
