@@ -4,15 +4,12 @@ const morgan = require('morgan')
 const cors = require('cors')
 const { CLIENT_ORIGIN, DATABASE_URL } = require('./config')
 const helmet = require('helmet')
-// const { Sequelize } = require('sequelize');
 const knex = require('knex');
 const { NODE_ENV } = require('./config')
 const workoutRouter = require('./workout-router');
 
 
 const app = express()
-
-// const sequelize = new Sequelize(DATABASE_URL)
 
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
