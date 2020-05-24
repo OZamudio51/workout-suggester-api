@@ -9,7 +9,7 @@ const serializeWorkout = workout => ({
   workout_name: workout.workout_name,
   workout_video: workout.workout_video,
   workout_desc: workout.workout_desc,
-})
+});
 
 workoutRouter
 .route('/').get((req, res, next) => {
@@ -18,7 +18,7 @@ workoutRouter
     .then(workout => {
         res.json(workout.map(serializeWorkout))
     })
-    .catch(next)
+    .catch(next);
 });
 
 module.exports = workoutRouter;
