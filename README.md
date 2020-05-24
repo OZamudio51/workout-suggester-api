@@ -1,6 +1,6 @@
-# Express Boilerplate!
+# Workout Suggester Api
 
-This is a boilerplate project used for starting new projects!
+This server was made with a boilerplate that is used for starting new projects!
 
 ## Set up
 
