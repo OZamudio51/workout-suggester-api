@@ -26,10 +26,10 @@ An application that suggest workouts based off of bodyparts.
 .
 ├──── GET
         ├── /workout
-        ├── /workout/chest
-        ├── /workout/legs
-        ├── /workout/shoulders
-        ├── /workout/back
-        ├── /workout/arms
-        ├── /workout/cardio
-        ├── /workout/stretches-warmup
+                ├── /workout/chest
+                ├── /workout/legs
+                ├── /workout/shoulders
+                ├── /workout/back
+                ├── /workout/arms
+                ├── /workout/cardio
+                ├── /workout/stretches-warmup
