@@ -33,3 +33,19 @@ An application that suggest workouts based off of bodyparts.
                 ├── /workout/arms
                 ├── /workout/cardio
                 ├── /workout/stretches-warmup
+```
+                
+### GET `/api/workouts/`
+
+```js
+// res.body
+{
+  [
+  id: workout.id,
+  bodypart: workout.bodypart,
+  workout_name: workout.workout_name,
+  workout_video: workout.workout_video,
+  workout_desc: workout.workout_desc,
+  ]
+}
+```
